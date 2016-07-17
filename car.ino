@@ -14,7 +14,7 @@ void setup() {
 // for the H-Bridge, OUT1 should connect to the blue wire of the 
 // front of the car, OUT2 should connect to the brown wire next to it.
 // OUT3 will connect to the rear motor's blue wire, and the remaining
-// OUT4 connects to the rear wire's brown wire
+// OUT4 connects to the rear wire's brown wire.
 
 void loop() {
   digitalWrite(10,LOW);
