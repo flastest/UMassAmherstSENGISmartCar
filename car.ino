@@ -17,6 +17,11 @@ void setup() {
 // OUT4 connects to the rear wire's brown wire.
 
 void loop() {
+  // check for data from a HC-SR04
+    // check if data meets certain parameters (less than x distance
+    // away or something.
+      // if so, set boolean for direction the HC-SR04 is facing to true  
+  
   digitalWrite(10,LOW);
   digitalWrite(13,HIGH); //RIGHT
   delay(9660);
