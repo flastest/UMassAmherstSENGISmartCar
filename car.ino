@@ -16,6 +16,7 @@ void setup() {
 // OUT3 will connect to the rear motor's blue wire, and the remaining
 // OUT4 connects to the rear wire's brown wire.
 
+
 void loop() {
   // check for data from a HC-SR04
     // check if data meets certain parameters (less than x distance
@@ -24,19 +25,22 @@ void loop() {
   
   digitalWrite(10,LOW);
   digitalWrite(13,HIGH); //RIGHT
-  delay(9660);
-
-  digitalWrite(13,LOW);
   digitalWrite(12,HIGH); //FORWARD
-  delay(9660);
+  delay(5560);
 
+  
+  digitalWrite(13,LOW);
   digitalWrite(12,LOW);
   digitalWrite(11,HIGH);//REVERSE
   delay(966);
 
   digitalWrite(11,LOW);
   digitalWrite(10,HIGH); //LEFT
-  delay(9660);
+  digitalWrite(12,HIGH); //FORWARD
+  delay(2966);
+  
+  digitalWrite(12,LOW);
+  delay(5000)
 
   
   //Serial.print(digitalRead(13));
