@@ -60,7 +60,11 @@
 int trigPin = 2;    //Trig - green Jumper
 int echoPin = 4;    //Echo - yellow Jumper
 long duration, cm, inches;
+int left = 10;
+int reverse = 11;
 int forward = 12;
+int right = 13;
+boolean wall = false;
  
  
 void setup() {
@@ -74,6 +78,7 @@ void setup() {
  
 void loop()
 {
+  digitalWrite(forward,HIGH);
  
  
   // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
@@ -91,15 +96,59 @@ void loop()
   duration = pulseIn(echoPin, HIGH);
  
   // convert the time into a distance
-  cm = (duration/2) / 29.1;
+  //cm = (duration/2) / 29.1;
   inches = (duration/2) / 74; 
   
   Serial.print(inches);
-  Serial.print("in, ");
-  Serial.print(cm);
-  Serial.print("cm");
   Serial.println();
+  //Serial.print("in, ");
+  //Serial.print(cm);
+  //Serial.print("cm");
+  //Serial.println();
   
-  delay(250);
-  pinMode()
+  if (inches < 24) {
+    wall = true;
+  }
+  do{
+    digitalWrite(12,HIGH);//just testing that the forward variable
+                          // isn't the problem
+    if(inches < 24 ) {
+      wall = true;
+    }
+  }while(wall == false);
+  
+  
+  //while (wall == false){
+    //digitalWrite(forward, HIGH);
+    //delay(10);
+    //if (inches < 24) {
+      //break;
+    //}
+  //}
+  
+  if (wall) {
+    digitalWrite(forward, LOW);
+    digitalWrite(reverse, HIGH);
+    digitalWrite(left, HIGH);
+    delay(1000);
+    digitalWrite(reverse,LOW);
+    digitalWrite(left, LOW);
+    digitalWrite(right,HIGH);
+    digitalWrite(forward,HIGH);
+    delay(500);
+    digitalWrite(right,LOW);
+    digitalWrite(forward,HIGH);
+    delay(10);
+
+  }
+ 
+  
+  
+  //if (inches > 12 || wall == false) {
+    //digitalWrite(right,LOW);
+    //digitalWrite(left, LOW);
+    //digitalWrite(reverse,LOW);
+    //digitalWrite(forward,HIGH);
+  //}
+  
 }
