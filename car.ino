@@ -60,6 +60,8 @@
 int trigPin = 2;    //Trig - green Jumper
 int echoPin = 4;    //Echo - yellow Jumper
 long duration, cm, inches;
+int forward = 12;
+ 
  
 void setup() {
   //Serial Port begin
@@ -67,6 +69,7 @@ void setup() {
   //Define inputs and outputs
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  pinMode(forward,OUTPUT);
 }
  
 void loop()
@@ -98,4 +101,5 @@ void loop()
   Serial.println();
   
   delay(250);
+  pinMode()
 }
